@@ -1,0 +1,612 @@
+.page {
+  font-family: var(--font-geist-sans);
+  color: var(--text-primary);
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.main {
+  width: 100%;
+  margin: 70px auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroPretitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  background-color: var(--bg);
+  padding: 0.5rem 1rem;
+  border-radius: 50vh;
+}
+
+.heroImage {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  height: 400px;
+}
+
+.heroImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.heroContent {
+  height: 100%;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 16px 0;
+}
+
+.heroSubtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.heroButton {
+  background: #111827;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+  padding: 8px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.sectionHeader, .sectionHeader[class*="sectionHeader"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.sectionHeader .heroButton1 {
+  margin-left: auto !important;
+}
+
+
+.heroButton:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+.heroButton1 {
+  background-color: var(--background);
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 8px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 16px;
+  transition: background-color 0.3s ease;
+}
+
+
+.heroButton1:hover {
+  background-color: #d4af37;
+  border: 1px solid #d4af37;
+  color: #000;
+}
+
+.banner {
+  width: 100%;
+  padding: 3rem 0;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerLogo {
+  background-color: #000000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.bannerContent {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feature {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.bannerDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  white-space: none;
+}
+
+.bannerTitle {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.bannerSub {
+  display: flex;
+  font-size: 1rem;
+}
+
+.banner img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+/* ===== Section Luxe Catégories ===== */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Grille des cartes */
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Carte de catégorie */
+.card {
+  position: relative;
+  width: 290px;
+  height: 290px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Image avec overlay doré */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.10);
+}
+
+/* Overlay doré */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(243, 187, 2, 0.4), rgba(212,175,55,0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* Titre de la carte */
+.title {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f1f1f1; /* doré */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: color 0.3s ease;
+}
+
+.card:hover .title {
+  color: #fff; /* titre devient blanc au hover pour contraste avec overlay */
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 12px auto 0 auto;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* ===== Section New Arrival Luxe ===== */
+.newArrival {
+  padding: 60px 20px;
+  background-color: #fdf8f3; /* fond très clair, premium */
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: #d4af37; /* doré */
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Loader */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: #444;
+  margin: 50px 0;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Grille principale */
+.arrivalGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* Grande image */
+.largeTile {
+  width: 100%;
+  height: 460px; 
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Petite image horizontale */
+.smallTile {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Petites images de la row */
+.smallTileHalf {
+  width: 100%;
+  height: 230px; 
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Toutes les images */
+.largeTile img,
+.smallTile img,
+.smallTileHalf img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*  évite les déformations */
+}
+
+.largeTile:hover, .smallTile:hover, .smallTileHalf:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* Images avec overlay doré */
+.largeTile .image,
+.smallTile .image,
+.smallTileHalf .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.largeTile:hover .image,
+.smallTile:hover .image,
+.smallTileHalf:hover .image {
+  transform: scale(1.05);
+}
+
+/* Overlay doré pour effet luxe */
+.largeTile::after,
+.smallTile::after,
+.smallTileHalf::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(212,175,55,0.25), rgba(212,175,55,0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.largeTile:hover::after,
+.smallTile:hover::after,
+.smallTileHalf:hover::after {
+  opacity: 1;
+}
+
+/* Overlay de texte */
+.tileOverlay, .smallOverlay, .smallOverlayMini {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  color: #fff;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  max-width: 90%;
+}
+
+.tileOverlay h3, .smallOverlay h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.tileOverlay p, .smallOverlay p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #fdf6e3;
+}
+
+.smallOverlayMini h5 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* CTA Button doré */
+.tileCta {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+  border: 1px solid #d4af37;
+  border-radius: 6px;
+  text-decoration: none;
+  background: linear-gradient(90deg, #d4af37, #b28b2c);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.tileCta:hover {
+  background: #fff;
+  color: #b28b2c;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+/* Petite grille pour petits tiles */
+.smallTiles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.smallTileRow {
+  display: flex;
+  gap: 12px;
+}
+
+.smallTileHalf {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .arrivalGrid {
+    grid-template-columns: 1fr;
+  }
+  .smallTileRow {
+    flex-direction: row;
+  }
+}
+
+
+/* Services Row */
+.serviceRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px
+}
+
+.serviceItem {
+  text-align: center;
+  width: 260px
+}
+
+.serviceIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(20, 20, 20, 0.04)
+}
+
+.serviceItem h5 {
+  margin: 0 0 6px 0;
+  font-size: 14px
+}
+
+.serviceItem .muted {
+  color: var(--text-muted);
+  font-size: 13px
+}
+.loader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 900px) {
+  .arrivalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .smallTileRow {
+    flex-direction: row
+  }
+}
+
+/* version mobile */
+@media (max-width:468px){
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .heroImage {
+    width: 100%;
+    height: 300px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  .bannerContent {
+    overflow-x: auto;
+  }
+   .bannerContent {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .feature {
+    margin: 10px;
+    justify-content: flex-start;
+
+  }
+ 
+}

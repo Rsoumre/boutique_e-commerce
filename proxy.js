@@ -1,0 +1,58 @@
+import { NextResponse } from "next/server";
+import { jwtVerify } from "jose";
+
+const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || "maPhraseQuiEstSenseEtreSecret");
+
+export async function proxy(request) {
+  const url = request.nextUrl.pathname;
+
+  try {
+    const token = request.cookies.get("token")?.value;
+
+    if (!token) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+
+    // Vérification du token
+    const { payload } = await jwtVerify(token, JWT_SECRET);
+
+    // Routes admin - déconnecter si non-admin essaie d'accéder
+    if (url.startsWith("/admin") && payload.role?.toLowerCase() !== "admin") {
+      // Supprimer le cookie token pour déconnecter l'utilisateur
+      const response = NextResponse.redirect(new URL("/login", request.url));
+      response.cookies.set("token", "", {
+        httpOnly: true,
+        path: "/",
+        maxAge: 0,
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+      });
+      return response;
+    }
+
+    if (
+      (url.startsWith("/cart") || url.startsWith("/wishlist") ||
+        url.startsWith("/dashboard") || url.startsWith("/profile") || url.startsWith("/checkout")) && !payload.user_id
+    ) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+
+    return NextResponse.next();
+  } catch (err) {
+    console.error("Erreur middleware:", err);
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+}
+
+// Seulement appliquer le middleware sur ces routes
+export const config = {
+  matcher: [
+    "/dashboard/:path*",
+    "/account/:path*",
+    "/profile/:path*",
+    "/cart/:path*",
+    "/wishlist/:path*",
+    "/checkout/:path*", 
+    "/admin/:path*",
+  ],
+};
